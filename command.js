@@ -1,4 +1,4 @@
-nodlet fs = require("fs");
+let fs = require("fs");
 module.exports = {
   pwd: function () {
     // Código pwd
