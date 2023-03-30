@@ -1,4 +1,6 @@
 let fs = require("fs");
+const request = require("request");
+
 module.exports = {
   pwd: function () {
     // Código pwd
@@ -11,14 +13,15 @@ module.exports = {
   ls: function () {
     fs.readdir(".", function (err, files) {
       if (err) throw err;
-      let arr = [];
+      let response = ""
       files.forEach(function (file) {
-        arr.push(file.toString());
+       response += file + "\n"
       });
-      let str = arr.join("\n");
-      return str;
+      process.stdout.write(response);
+      process.stdout.write("\nprompt > ");
     });
   },
+  //Es similar a un console.log
   echo: (string) => {
     return string;
   },
